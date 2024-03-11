@@ -16,6 +16,24 @@ spec:
       owner: misskey
       secret:
         name: db-misskey-user
+        
+  backup:
+    barmanObjectStore:
+      destinationPath: s3://misskey-backup/backups
+      endpointURL: https://2b49b33bf6d3b47966f0d6bc3c6a1130.r2.cloudflarestorage.com
+      s3Credentials:
+        accessKeyId:
+          name: backup-key
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: backup-key
+          key: ACCESS_SECRET_KEY
+      wal:
+        compression: bzip2
+      data:
+        compression: bzip2
+    retentionPolicy: "5d"
+
   storage:
     storageClass: ceph-rbd
     size: 5Gi

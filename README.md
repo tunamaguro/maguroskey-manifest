@@ -14,6 +14,11 @@ $ vi config
 $ vault kv put kv/maguroskey/config default.yml="$(cat config)"
 ```
 
+3. バックアップ用のキーを登録する
+```bash
+$ vault kv put kv/maguroskey/backup-key ACCESS_KEY_ID=<access key> ACCESS_SECRET_KEY=<secret key>
+```
+
 ポリシーとロールを作成する
 ```bash
 $ vault policy write read-maguroskey -  << EOF
@@ -27,3 +32,5 @@ bound_service_account_names=default \
 bound_service_account_namespaces=maguroskey \
 policies=read-maguroskey
 ```
+
+## 

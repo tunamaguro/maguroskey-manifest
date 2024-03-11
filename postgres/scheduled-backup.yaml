@@ -1,0 +1,13 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: maguroskey-scheduled-backup
+  namespace: maguroskey
+spec:
+  schedule: "0 0 0,12 * * *"
+  backupOwnerReference: self
+  immediate: true
+  cluster:
+    name: misskey-postgres
+
+
