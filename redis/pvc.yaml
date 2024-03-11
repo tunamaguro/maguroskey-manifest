@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-data
+  namespace: maguroskey
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: ceph-rbd
+  accessModes:
+    - ReadWriteOnce
