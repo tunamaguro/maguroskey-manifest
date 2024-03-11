@@ -1,0 +1,8 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Backup
+metadata:
+  namespace: maguroskey
+  name: backup-temporal
+spec:
+  cluster:
+    name: misskey-postgres
