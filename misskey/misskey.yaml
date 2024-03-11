@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: misskey-web
+  namespace: maguroskey
+spec:
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: misskey-web
+  template:
+    metadata:
+      labels:
+        app: misskey-web
+    spec:
+      containers:
+        - name: misskey-web
+          image: misskey/misskey:2024.2.0
+          ports:
+            - name: web
+              containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - name: misskey-config
+              mountPath: /misskey/.config
+              readOnly: true
+          resources:
+            requests:
+              cpu: 250m
+              memory: 1024Mi
+            limits:
+              cpu: 500m
+              memory: 2048Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+
+      volumes:
+        - name: misskey-config
+          secret:
+            secretName: maguroskey-config
+            optional: false
+            items:
+              - key: default.yml
+                path: default.yml
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 20
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - misskey-web
+                topologyKey: "kubernetes.io/hostname"
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: misskey-web-hpa
+  namespace: maguroskey
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: misskey-web
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 150

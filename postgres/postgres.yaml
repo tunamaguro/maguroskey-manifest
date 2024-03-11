@@ -1,0 +1,28 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: misskey-postgres
+  namespace: maguroskey
+spec:
+  description: "datbase for Misskey"
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.1-1
+  instances: 2
+  primaryUpdateStrategy: unsupervised
+  superuserSecret:
+    name: db-superuser
+  bootstrap:
+    initdb:
+      database: misskey
+      owner: misskey
+      secret:
+        name: db-misskey-user
+  storage:
+    storageClass: ceph-rbd
+    size: 5Gi
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "250m"
+    limits:
+      memory: "300Mi"
+      cpu: "500m"

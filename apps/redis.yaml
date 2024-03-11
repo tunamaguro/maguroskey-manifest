@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: maguroskey-redis
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/tunamaguro/maguroskey-manifest.git
+    path: redis
+    targetRevision: main
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: maguroskey
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
