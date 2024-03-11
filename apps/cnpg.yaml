@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: maguroskey-cnpg
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cloudnative-pg/charts.git
+    path: charts/cloudnative-pg
+    targetRevision: cloudnative-pg-v0.20.1
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: cnpg-system
+  syncPolicy:     
+    syncOptions:
+      - CreateNamespace=true
