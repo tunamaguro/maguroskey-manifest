@@ -33,4 +33,15 @@ bound_service_account_namespaces=maguroskey \
 policies=read-maguroskey
 ```
 
-## 
+## アプリケーションを作成する
+
+1. `apps`以下を`apply`する
+```bash
+$ kubectl apply -f apps
+```
+
+2. データベースの準備が完了してからmisskeyを起動する
+```bash
+$ kubectl -n maguroskey get clusters.postgresql.cnpg.io 
+$ argocd app sync argocd/maguroskey-misskey 
+```
