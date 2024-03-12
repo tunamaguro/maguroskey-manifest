@@ -1,5 +1,7 @@
 # maguroskey-manifest
 
+misskeyを立ち上げるための設定を記載したリポジトリです
+
 ## VaultにSecretを登録する
 1. DBで使うユーザ用のパスワードとユーザ名を作成する
 ```bash
