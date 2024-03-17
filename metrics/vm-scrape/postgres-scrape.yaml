@@ -1,0 +1,16 @@
+# https://cloudnative-pg.io/documentation/1.16/monitoring/#how-to-inspect-the-exported-metrics
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMPodScrape
+metadata:
+  name: maguroskey-postgres
+  namespace: monitoring
+spec:
+  namespaceSelector:
+    matchNames:
+      - maguroskey
+  selector:
+    matchLabels:
+      cnpg.io/cluster: misskey-postgres
+  podMetricsEndpoints:
+    - port: metrics
+  
