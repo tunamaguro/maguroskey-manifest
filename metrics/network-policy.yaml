@@ -25,11 +25,10 @@ spec:
       toPorts:
         - ports:
             - port: "3000"
-              protocol: TCP
-            - port: "3000"
-              protocol: UDP
-          rules:
-            http: [{}]
+              protocol: TCP       
+          # CiliumがL7のプロキシに利用しているEnvoyがWebSocketのConnectメソッドに対応していないのでL7を有効にしない
+          # rules:
+          #   http: [{}]     
     - fromEndpoints:
         - {}
   egress:
@@ -45,10 +44,6 @@ spec:
             dns:
               - matchPattern: "*"
     - toEndpoints:
-        - matchLabels:
-            app: cloudflare-tunnel
-            io.kubernetes.pod.namespace: cloudflare-tunnel
-    - toEndpoints:
         - {}
     - toEntities:
         - world
@@ -56,7 +51,3 @@ spec:
         - ports:
             - port: "443"
               protocol: TCP
-            - port: "443"
-              protocol: UDP
-          rules:
-            http: [{}]
