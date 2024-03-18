@@ -63,6 +63,138 @@ spec:
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "reqps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 0,
+            "y": 1
+          },
+          "id": 24,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.1.6",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "d98052a5-18c7-4e21-86dd-d63f2e06c61a"
+              },
+              "editorMode": "builder",
+              "expr": "sum(rate(hubble_http_requests_total{destination_workload=\"misskey-web\", destination_namespace=\"maguroskey\"}[$__rate_interval]))",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Requests/sec",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d98052a5-18c7-4e21-86dd-d63f2e06c61a"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "s"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 4,
+            "y": 1
+          },
+          "id": 25,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.1.6",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "d98052a5-18c7-4e21-86dd-d63f2e06c61a"
+              },
+              "editorMode": "builder",
+              "expr": "sum(rate(hubble_http_request_duration_seconds_sum{destination_workload=\"misskey-web\", destination_namespace=\"maguroskey\"}[$__rate_interval]))",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Request duration",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d98052a5-18c7-4e21-86dd-d63f2e06c61a"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
               "mappings": [
                 {
                   "options": {
@@ -104,8 +236,8 @@ spec:
           },
           "gridPos": {
             "h": 6,
-            "w": 24,
-            "x": 0,
+            "w": 16,
+            "x": 8,
             "y": 1
           },
           "id": 8,
@@ -1703,6 +1835,6 @@ spec:
       "timezone": "",
       "title": "Misskey Dashboard",
       "uid": "rD5BsVJSz",
-      "version": 15,
+      "version": 16,
       "weekStart": ""
     }
