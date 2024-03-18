@@ -26,6 +26,8 @@ spec:
         - ports:
             - port: "3000"
               protocol: TCP
+            - port: "3000"
+              protocol: UDP
           rules:
             http: [{}]
     - fromEndpoints:
@@ -42,6 +44,10 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
+    - toEndpoints:
+        - matchLabels:
+            app: cloudflare-tunnel
+            io.kubernetes.pod.namespace: cloudflare-tunnel
     - toEndpoints:
         - {}
     - toEntities:
