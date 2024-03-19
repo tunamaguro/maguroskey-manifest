@@ -30,7 +30,7 @@ spec:
               memory: 1024Mi
             limits:
               cpu: 500m
-              memory: 1280Mi
+              memory: 1536Mi
           readinessProbe:
             httpGet:
               path: /
@@ -71,15 +71,15 @@ spec:
   minReplicas: 1
   maxReplicas: 2
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 150
-  - type: Resource
-    resource:
-      name: memory
-      target:
-        type: Utilization
-        averageUtilization: 100
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 150
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 120
