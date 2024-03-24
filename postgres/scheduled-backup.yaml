@@ -4,7 +4,7 @@ metadata:
   name: maguroskey-scheduled-backup
   namespace: maguroskey
 spec:
-  schedule: "0 0 0,12 * * *"
+  schedule: "0 0 0 * * *"
   backupOwnerReference: self
   immediate: true
   cluster:
