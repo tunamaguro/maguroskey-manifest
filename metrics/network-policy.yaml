@@ -6,6 +6,11 @@ metadata:
 spec:
   endpointSelector: {}
   ingress:
+    # ---allow-ingress-from-namespace---
+    - fromEndpoints:
+        - {}
+    # ---allow-ingress-from-namespace---
+    # ---postgresql---
     - fromEndpoints:
         - matchLabels:
             io.kubernetes.pod.namespace: cnpg-system
@@ -18,6 +23,8 @@ spec:
       toPorts:
         - ports:
             - port: "9187"
+    # ---postgresql---
+    # ---misskey-web---
     - fromEndpoints:
         - matchLabels:
             app: cloudflare-tunnel
@@ -29,9 +36,9 @@ spec:
           # CiliumがL7のプロキシに利用しているEnvoyがWebSocketのConnectメソッドに対応していないのでL7を有効にしない
           # rules:
           #   http: [{}]     
-    - fromEndpoints:
-        - {}
+    # ---misskey-web---
   egress:
+    # ---allow-kube-dns---
     - toEndpoints:
         - matchLabels:
             io.kubernetes.pod.namespace: kube-system
@@ -43,13 +50,20 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
+    # ---allow-kube-dns---
+    # ---allow-egress-to-namespace---
     - toEndpoints:
         - {}
+    # ---allow-egress-to-namespace---
+    # ---allow-create-postgresql-backup---
+    - toEntities:
+        - cluster
+    # ---allow-create-postgresql-backup---
+    # ---allow-outbound-tcp---
     - toEntities:
         - world
       toPorts:
         - ports:
             - port: "443"
               protocol: TCP
-            - port: "443"
-              protocol: UDP
+    # ---allow-outbound-tcp---
