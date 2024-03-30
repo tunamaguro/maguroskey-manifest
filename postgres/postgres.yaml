@@ -16,7 +16,8 @@ spec:
       owner: misskey
       secret:
         name: db-misskey-user
-        
+  minSyncReplicas: 1
+  maxSyncReplicas: 1
   backup:
     barmanObjectStore:
       destinationPath: s3://misskey-backup/backups
@@ -33,6 +34,7 @@ spec:
       data:
         compression: bzip2
     retentionPolicy: "5d"
+  
 
   storage:
     storageClass: ceph-rbd
