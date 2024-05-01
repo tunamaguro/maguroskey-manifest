@@ -7,6 +7,6 @@ spec:
   selector:
     app: misskey-web
   ports:
-  - name: misskey
-    port: 80
-    targetPort: web
+    - name: misskey
+      port: 80
+      targetPort: web

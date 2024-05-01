@@ -56,4 +56,3 @@ spec:
                       values:
                         - misskey-web
                 topologyKey: "kubernetes.io/hostname"
-
