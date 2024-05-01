@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: misskey-media-proxy
+  namespace: maguroskey
+spec:
+  selector:
+    app: misskey-media-proxy
+  ports:
+    - name: misskey
+      port: 80
+      targetPort: web
