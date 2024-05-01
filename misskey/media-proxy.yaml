@@ -29,5 +29,5 @@ spec:
               memory: 400Mi
           readinessProbe:
             httpGet:
-              path: /
+              path: /health
               port: 3000
