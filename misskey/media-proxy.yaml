@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: misskey-media-proxy
-          image: tunamaguro/misskey-webp-proxy:v1.0.3
+          image: tunamaguro/misskey-webp-proxy:v1.0.4
           ports:
             - name: web
               containerPort: 3000
