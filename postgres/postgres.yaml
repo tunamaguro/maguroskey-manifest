@@ -37,7 +37,7 @@ spec:
   
 
   storage:
-    storageClass: ceph-rbd
+    storageClass: local-path
     size: 10Gi
   resources:
     requests:

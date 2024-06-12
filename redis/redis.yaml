@@ -26,13 +26,13 @@ spec:
             - name: redis
               containerPort: 6379
               protocol: TCP
-          volumeMounts:
-            - name: redis-data
-              mountPath: /data
-      volumes:
-        - name: redis-data
-          persistentVolumeClaim:
-            claimName: redis-data
+      #     volumeMounts:
+      #       - name: redis-data
+      #         mountPath: /data
+      # volumes:
+      #   - name: redis-data
+      #     persistentVolumeClaim:
+      #       claimName: redis-data
 ---
 apiVersion: v1
 kind: Service
