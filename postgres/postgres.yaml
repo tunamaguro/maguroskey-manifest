@@ -5,8 +5,8 @@ metadata:
   namespace: maguroskey
 spec:
   description: "datbase for Misskey"
-  imageName: ghcr.io/cloudnative-pg/postgresql:16.1-1
-  instances: 2
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.3-4
+  instances: 3
   primaryUpdateStrategy: unsupervised
   superuserSecret:
     name: db-superuser
@@ -16,6 +16,7 @@ spec:
       owner: misskey
       secret:
         name: db-misskey-user
+
   minSyncReplicas: 1
   maxSyncReplicas: 1
   backup:
@@ -31,11 +32,11 @@ spec:
           key: ACCESS_SECRET_KEY
       wal:
         compression: bzip2
+        maxParallel: 8
       data:
         compression: bzip2
     retentionPolicy: "5d"
   
-
   storage:
     storageClass: local-path
     size: 10Gi
