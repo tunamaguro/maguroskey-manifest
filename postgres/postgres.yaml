@@ -30,9 +30,9 @@ spec:
         secretAccessKey:
           name: backup-key
           key: ACCESS_SECRET_KEY
-      wal:
-        compression: bzip2
-        maxParallel: 8
+      # wal:
+      #   compression: bzip2
+      #   maxParallel: 8
       data:
         compression: bzip2
     retentionPolicy: "5d"
