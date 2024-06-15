@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: misskey-web
-          image: misskey/misskey:2024.5.0
+          image: misskey/misskey:2024.3.1
           command:
             - pnpm
             - start
