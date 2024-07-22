@@ -6,7 +6,7 @@ metadata:
 spec:
   description: "datbase for Misskey"
   imageName: ghcr.io/cloudnative-pg/postgresql:16.3-4
-  instances: 3
+  instances: 2
   primaryUpdateStrategy: unsupervised
   superuserSecret:
     name: db-superuser
@@ -16,9 +16,10 @@ spec:
       owner: misskey
       secret:
         name: db-misskey-user
+    # recovery:
+    #   backup:
+    #     name: maguroskey-scheduled-backup-20240715000000
 
-  minSyncReplicas: 1
-  maxSyncReplicas: 1
   backup:
     barmanObjectStore:
       destinationPath: s3://misskey-backup/backups
