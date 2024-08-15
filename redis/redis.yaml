@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -33,16 +34,3 @@ spec:
       #   - name: redis-data
       #     persistentVolumeClaim:
       #       claimName: redis-data
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: redis-service
-  namespace: maguroskey
-spec:
-  selector:
-    app: redis
-  ports:
-    - protocol: TCP
-      port: 6379
-      targetPort: 6379
