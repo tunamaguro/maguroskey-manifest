@@ -1,8 +1,11 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: misskey-web
   namespace: maguroskey
+  labels:
+    app: misskey-web
 spec:
   revisionHistoryLimit: 5
   selector:
@@ -56,3 +59,14 @@ spec:
                       values:
                         - misskey-web
                 topologyKey: "kubernetes.io/hostname"
+---
+apiVersion: policy/v1 
+kind: PodDisruptionBudget 
+metadata: 
+  name: misskey-web-pdb
+  namespace: maguroskey
+spec: 
+  maxUnavailable: 50%
+  selector:
+    matchLabels:
+      app: misskey-web
