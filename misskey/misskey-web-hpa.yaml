@@ -17,10 +17,4 @@ spec:
         target:
           # 個人用なので多少詰まることを許容
           type: Utilization
-          averageUtilization: 95
-  behavior:
-    scaleUp:
-      policies:
-        - periodSeconds: 60
-          type: Percent
-          value: 100
+          averageUtilization: 80
