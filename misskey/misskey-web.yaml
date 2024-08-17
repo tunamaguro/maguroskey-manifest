@@ -29,10 +29,10 @@ spec:
               readOnly: true
           resources:
             requests:
-              cpu: 200m
+              cpu: 300m
               memory: 0.8Gi
             limits:
-              cpu: 300m
+              cpu: 400m
               memory: 1.0Gi
           readinessProbe:
             httpGet:
