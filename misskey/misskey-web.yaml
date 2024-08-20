@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: misskey-web
-          image: misskey/misskey:2024.7.0
+          image: misskey/misskey:2024.8.0
           ports:
             - name: web
               containerPort: 3000
