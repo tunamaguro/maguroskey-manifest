@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: redis:7.2.4-alpine
+          image: valkey/valkey:7.2.6-alpine3.20
           resources:
             requests:
               memory: 50Mi
@@ -27,10 +27,10 @@ spec:
             - name: redis
               containerPort: 6379
               protocol: TCP
-      #     volumeMounts:
-      #       - name: redis-data
-      #         mountPath: /data
-      # volumes:
-      #   - name: redis-data
-      #     persistentVolumeClaim:
-      #       claimName: redis-data
+          volumeMounts:
+            - name: redis-data
+              mountPath: /data
+      volumes:
+        - name: redis-data
+          persistentVolumeClaim:
+            claimName: redis-data
