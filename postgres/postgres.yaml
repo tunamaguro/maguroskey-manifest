@@ -40,7 +40,7 @@ spec:
     retentionPolicy: "3d"
   
   storage:
-    storageClass: local-path
+    storageClass: ceph-rbd
     size: 10Gi
   resources:
     requests:
