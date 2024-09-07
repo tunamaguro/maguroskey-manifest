@@ -5,7 +5,7 @@ metadata:
   namespace: maguroskey
 spec:
   description: "datbase for Misskey"
-  imageName: ghcr.io/cloudnative-pg/postgresql:16.3-4
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.4-6-bookworm
   instances: 2
   primaryUpdateStrategy: unsupervised
   superuserSecret:
