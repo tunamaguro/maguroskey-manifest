@@ -36,7 +36,7 @@ spec:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 12,
+      "id": 14,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -56,7 +56,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -107,7 +107,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(rate(hubble_flows_processed_total{destination_workload=\"misskey-web\", destination_namespace=\"maguroskey\", source_namespace=\"cloudflare-tunnel\"}[$__rate_interval]))",
@@ -122,7 +122,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -173,7 +173,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(rate(hubble_flows_to_world_total{source_namespace=\"maguroskey\", source_workload=\"misskey-web\"}[$__rate_interval]))",
@@ -188,7 +188,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -260,7 +260,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(container) (kube_pod_container_status_ready{namespace=\"maguroskey\"})",
@@ -275,7 +275,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -324,7 +324,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"maguroskey\", container=\"misskey-web\"}[$__rate_interval]))",
@@ -336,7 +336,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_requests{namespace=\"maguroskey\", resource=\"cpu\", container=\"misskey-web\"})",
@@ -359,7 +359,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_limits{namespace=\"maguroskey\", resource=\"cpu\", container=\"misskey-web\"})",
@@ -382,7 +382,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(container_memory_usage_bytes{namespace=\"maguroskey\", container=\"misskey-web\"})",
@@ -394,7 +394,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"misskey-web\", resource=\"memory\"})",
@@ -417,7 +417,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"misskey-web\", resource=\"memory\"})",
@@ -444,7 +444,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -493,7 +493,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"maguroskey\", container=\"postgres\"}[$__rate_interval]))",
@@ -505,7 +505,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_requests{namespace=\"maguroskey\", resource=\"cpu\", container=\"postgres\"})",
@@ -528,7 +528,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_limits{namespace=\"maguroskey\", resource=\"cpu\", container=\"postgres\"})",
@@ -551,7 +551,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(container_memory_usage_bytes{namespace=\"maguroskey\", container=\"postgres\"})",
@@ -563,7 +563,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"postgres\", resource=\"memory\"})",
@@ -586,7 +586,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"postgres\", resource=\"memory\"})",
@@ -613,7 +613,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -662,7 +662,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"maguroskey\", container=\"redis\"}[$__rate_interval]))",
@@ -674,7 +674,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_requests{namespace=\"maguroskey\", resource=\"cpu\", container=\"redis\"})",
@@ -697,7 +697,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_limits{namespace=\"maguroskey\", resource=\"cpu\", container=\"redis\"})",
@@ -720,7 +720,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(container_memory_usage_bytes{namespace=\"maguroskey\", container=\"redis\"})",
@@ -732,7 +732,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"redis\", resource=\"memory\"})",
@@ -755,7 +755,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum(kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"redis\", resource=\"memory\"})",
@@ -795,7 +795,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -878,7 +878,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (rate(container_cpu_usage_seconds_total{namespace=\"maguroskey\", container=\"misskey-web\"}[$__rate_interval]))",
@@ -890,7 +890,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"misskey-web\", resource=\"cpu\"})",
@@ -902,7 +902,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"misskey-web\", resource=\"cpu\"})",
@@ -918,7 +918,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1001,7 +1001,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (container_memory_usage_bytes{namespace=\"maguroskey\", container=\"misskey-web\"})",
@@ -1013,7 +1013,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"misskey-web\", resource=\"memory\"})",
@@ -1025,7 +1025,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"misskey-web\", resource=\"memory\"})",
@@ -1041,7 +1041,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1124,7 +1124,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (rate(container_cpu_usage_seconds_total{namespace=\"maguroskey\", container=\"postgres\"}[$__rate_interval]))",
@@ -1136,7 +1136,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"postgres\", resource=\"cpu\"})",
@@ -1148,7 +1148,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"postgres\", resource=\"cpu\"})",
@@ -1164,7 +1164,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1247,7 +1247,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (container_memory_usage_bytes{namespace=\"maguroskey\", container=\"postgres\"})",
@@ -1259,7 +1259,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"postgres\", resource=\"memory\"})",
@@ -1271,7 +1271,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"postgres\", resource=\"memory\"})",
@@ -1287,7 +1287,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1370,7 +1370,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (rate(container_cpu_usage_seconds_total{namespace=\"maguroskey\", container=\"redis\"}[$__rate_interval]))",
@@ -1382,7 +1382,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"redis\", resource=\"cpu\"})",
@@ -1394,7 +1394,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"redis\", resource=\"cpu\"})",
@@ -1410,7 +1410,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1493,7 +1493,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (container_memory_usage_bytes{namespace=\"maguroskey\", container=\"redis\"})",
@@ -1505,7 +1505,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_requests{namespace=\"maguroskey\", container=\"redis\", resource=\"memory\"})",
@@ -1517,7 +1517,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (kube_pod_container_resource_limits{namespace=\"maguroskey\", container=\"redis\", resource=\"memory\"})",
@@ -1533,7 +1533,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1612,7 +1612,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(persistentvolumeclaim) (kubelet_volume_stats_capacity_bytes{namespace=\"maguroskey\"})",
@@ -1624,7 +1624,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(persistentvolumeclaim) (kubelet_volume_stats_used_bytes{namespace=\"maguroskey\"})",
@@ -1640,7 +1640,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1691,7 +1691,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(persistentvolumeclaim) (kubelet_volume_stats_capacity_bytes{namespace=\"maguroskey\"})",
@@ -1703,7 +1703,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(persistentvolumeclaim) (kubelet_volume_stats_used_bytes{namespace=\"maguroskey\"})",
@@ -1743,7 +1743,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1825,7 +1825,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(destination_workload) (rate(hubble_flows_processed_total{source_namespace=\"cloudflare-tunnel\", destination_namespace=\"maguroskey\", destination_workload=\"misskey-web\"}[$__rate_interval]))",
@@ -1840,7 +1840,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1922,7 +1922,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(source_workload) (rate(hubble_flows_to_world_total{source_namespace=\"maguroskey\", source_workload=\"misskey-web\"}[$__rate_interval]))",
@@ -1937,7 +1937,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2019,7 +2019,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(source_workload) (rate(hubble_flows_processed_total{source_namespace=\"maguroskey\", destination_namespace=\"maguroskey\", source_workload=\"misskey-web\", destination_workload!~\"redis\"}[$__rate_interval]))",
@@ -2034,7 +2034,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2116,7 +2116,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "expr": "sum by(destination_workload) (rate(hubble_flows_processed_total{source_namespace=\"maguroskey\", destination_workload=\"redis\"}[$__rate_interval]))",
@@ -2131,7 +2131,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2214,7 +2214,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "exemplar": false,
@@ -2231,7 +2231,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2314,7 +2314,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "c0742a1b-9300-49a3-923d-ece55ab41778"
+                "uid": "${datasource}"
               },
               "editorMode": "builder",
               "exemplar": false,
@@ -2334,7 +2334,26 @@ spec:
       "style": "dark",
       "tags": [],
       "templating": {
-        "list": []
+        "list": [
+          {
+            "current": {
+              "selected": true,
+              "text": "VictoriaMetrics",
+              "value": "VictoriaMetrics"
+            },
+            "hide": 0,
+            "includeAll": false,
+            "multi": false,
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "queryValue": "",
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "type": "datasource"
+          }
+        ]
       },
       "time": {
         "from": "now-15m",
